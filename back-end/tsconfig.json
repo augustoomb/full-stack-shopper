@@ -6,9 +6,9 @@
   "outDir": "./dist",                                
   "allowJs": true,                                  
   "moduleResolution": "node",
-  "types": [
-    "@types/jest",
-  ],
+  // "types": [
+  //   "@types/jest",
+  // ],
   "resolveJsonModule": true,
   "esModuleInterop": true,
   "forceConsistentCasingInFileNames": true,
