@@ -7,4 +7,5 @@ export class ProductService extends Service<Product> {
     constructor(model: SimpleModel<Product> = new ProductModel()) {
         super(model);
     }
+   
 }
