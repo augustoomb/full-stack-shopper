@@ -10,4 +10,15 @@ export default abstract class Service<T> {
     async list(): Promise<T[]> {
         return await this.model.list() as T[];
     }
+
+    async find(code: number): Promise<T | null> {
+        const model = this.model as SimpleModel<T>;
+        const foundObj = await model.find(code)
+        if (!foundObj) {
+          return null
+        }
+        
+        return await this.model.find(code) as T;
+    }
+    
 }
