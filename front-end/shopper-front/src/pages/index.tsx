@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import Uploader from '@/components/uploader'
+import Uploader from '@/components/Uploader'
 import { useState } from 'react'
-import ValidationBtn from '@/components/validationBtn'
-import RefreshBtn from '@/components/refreshBtn'
-import DataTable from '@/components/dataTable'
+import ValidationBtn from '@/components/ValidationBtn'
+import RefreshBtn from '@/components/RefreshBtn'
+import DataTable from '@/components/DataTable'
 
 const inter = Inter({ subsets: ['latin'] })
 
