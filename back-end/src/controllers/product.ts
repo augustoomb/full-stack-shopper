@@ -9,7 +9,13 @@ export async function list(req: Request, res: Response) {
 }
 
 export async function validateProduct(req: Request, res: Response) {
-    const teste= req.body;
+    const data = req.body;
 
-    res.json(teste)
+    const arrProducts = JSON.parse(data.product);
+
+    const productService = new ProductService();
+
+    const arrCheckedProducts = await productService.validate(arrProducts)
+
+    return res.json(arrCheckedProducts)
 }
