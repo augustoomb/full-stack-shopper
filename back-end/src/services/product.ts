@@ -55,23 +55,44 @@ export class ProductService extends Service<Product> {
         }
 
         return errors;
+
+    }
+
+    async checkRulesErrors(product: any, completeProduct: any) {
+        const errors = [];
+
+        if(product['new_price'] < completeProduct['cost_price']) {
+            errors.push({'financialError': 'Novo preço deve ser maior que o custo do produto'})
+        }
+
+        const teenPercentPrice = ((completeProduct['sales_price']/100) * 10).toFixed(2);
+        const minPrice = (+completeProduct['sales_price'] - +teenPercentPrice).toFixed(2);
+        const maxPrice = (+completeProduct['sales_price'] + +teenPercentPrice).toFixed(2);
+
+
+        if(product['new_price'] < minPrice || product['new_price'] > maxPrice) {
+            errors.push({'marketingError': 'Variação de preço não pode ser superior a 10%'})
+        }
+
+        return errors;
+        
     }
 
 
 
     async validate(products: Product[]): Promise<Product[] | any[]> {
         const arrValidateProducts = Promise.all(products.map(async (product) => {
+            const completeProduct = await this.productExists(product)
             return {
-                ...product,
+                data: completeProduct || product,
                 typeErrors: this.checkTypeErrors(product),
-                contentErrors: await this.checkContentErrors(product)
+                contentErrors: await this.checkContentErrors(product),
+                rulesErrors: completeProduct ? 
+                await this.checkRulesErrors(product, completeProduct) : []
             } 
         }))
 
         return arrValidateProducts;
     }
-
-    
-
    
 }
