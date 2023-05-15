@@ -5,7 +5,8 @@ import axios from 'axios';
 const validateProduct = async(product: any) => {
     try {
         const response = await axios.post(`http://localhost:3000/products/validate`, {product});
-        console.log(response)
+        console.log(response.data)
+        return response.data
     } catch (error) {
         console.log(error)
     }
