@@ -84,7 +84,7 @@ export class ProductService extends Service<Product> {
         const arrValidateProducts = Promise.all(products.map(async (product) => {
             const completeProduct = await this.productExists(product)
             return {
-                data: completeProduct || product,
+                data: completeProduct ? {completeProduct, product} : product,
                 typeErrors: this.checkTypeErrors(product),
                 contentErrors: await this.checkContentErrors(product),
                 rulesErrors: completeProduct ? 
