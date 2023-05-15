@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import Product from '../interfaces/product';
 import { SimpleModel } from '../model/model';
 import ProductModel from '../model/product';
@@ -78,13 +79,21 @@ export class ProductService extends Service<Product> {
         
     }
 
-
+    mountObjProduct(completeProduct: any, product: any) {
+        return {
+            'new_price': product['new_price'],
+            'product_code': product['product_code'],
+            'sales_price': completeProduct['sales_price'],
+            'name': completeProduct['name'],
+        }
+    }
 
     async validate(products: Product[]): Promise<Product[] | any[]> {
         const arrValidateProducts = Promise.all(products.map(async (product) => {
             const completeProduct = await this.productExists(product)
             return {
-                data: completeProduct ? {completeProduct, product} : product,
+                // data: completeProduct ? {completeProduct, product} : product,
+                data: completeProduct ? this.mountObjProduct(completeProduct, product) : product,
                 typeErrors: this.checkTypeErrors(product),
                 contentErrors: await this.checkContentErrors(product),
                 rulesErrors: completeProduct ? 
