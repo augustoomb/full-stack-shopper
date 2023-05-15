@@ -11,5 +11,14 @@ const validateProduct = async(product: any) => {
         console.log(error)
     }
 }
+const updateProduct = async(product: any) => {
+    try {
+        const response = await axios.post(`http://localhost:3000/products/update`, {product});
+        // console.log(response.data)
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
 
-export { validateProduct };
+export { validateProduct, updateProduct };
