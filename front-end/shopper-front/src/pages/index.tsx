@@ -4,7 +4,7 @@ import styles from '@/styles/Home.module.css'
 import Uploader from '@/components/Uploader'
 import { useState } from 'react'
 import ValidationBtn from '@/components/ValidationBtn'
-import RefreshBtn from '@/components/RefreshBtn'
+import UpdateBtn from '@/components/UpdateBtn'
 import DataTable from '@/components/DataTable'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -13,7 +13,12 @@ export default function Home() {
   const [dataCsvFile, setDataCsvFile] = useState([])
   const [dataAPIProducts, setDataAPIProducts] = useState()
 
-  return (
+  const cleanItems = () => {
+    setDataCsvFile([]);
+    setDataAPIProducts(undefined);
+  }
+
+  return (    
     <>
       <Head>
         <title>Projeto Shopper</title>
@@ -33,7 +38,7 @@ export default function Home() {
         <div className={styles.grid}>
           <ValidationBtn dataCsvFile={ dataCsvFile } setDataAPIProducts={ setDataAPIProducts }/>
 
-          <RefreshBtn dataAPIProducts={ dataAPIProducts }/> 
+          <UpdateBtn dataAPIProducts={ dataAPIProducts } cleanItems={cleanItems}/> 
         </div>
       </main>
     </>
