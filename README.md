@@ -55,3 +55,11 @@ Há um script (createDatabase.sql) que vai popular o banco de dados com os dados
 # Front-end
 
 ## Scripts
+
+Na raiz do diretório front-end, instale as dependências:
+
+### `npm i`
+
+<br/>
+
+A aplicação rodará na porta 3001
