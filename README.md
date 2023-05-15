@@ -13,7 +13,7 @@ Há dois diretórios disponíveis: back-end e front-end
 
 ## Scripts
 
-No diretório do projeto, rode o docker compose:
+No diretório back-end, rode o docker compose:
 
 ### `docker-compose up -d`
 
