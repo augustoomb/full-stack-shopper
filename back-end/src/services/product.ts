@@ -26,15 +26,18 @@ export class ProductService extends Service<Product> {
         const errors = [];
 
         if(!this.checkKeysInArrProduct(product)) {
-            errors.push({'errorKeys': 'Os campos "product_code,new_price" devem ser fornecidos'});
+            // errors.push({'errorKeys': 'Os campos "product_code,new_price" devem ser fornecidos'});
+            errors.push('Os campos "product_code,new_price" devem ser fornecidos');
         }
 
         if(!this.checkIsNumeric(product['product_code'])) {
-            errors.push({'typeError': 'O código deve ser um valor numérico'});
+            // errors.push({'typeError': 'O código deve ser um valor numérico'});
+            errors.push('O código deve ser um valor numérico');
         }
         
         if(!this.checkIsNumeric(product['new_price']) ) {
-            errors.push({'typeError': 'O preço deve ser um valor numérico'});
+            // errors.push({'typeError': 'O preço deve ser um valor numérico'});
+            errors.push('O preço deve ser um valor numérico');
         }
 
         return errors;
@@ -52,7 +55,8 @@ export class ProductService extends Service<Product> {
         const completeProduct = await this.productExists(product);
 
         if(completeProduct === null) {
-            errors.push({'notFoundProduct': 'Produto não encontrado'})
+            // errors.push({'notFoundProduct': 'Produto não encontrado'})
+            errors.push('Produto não encontrado')
         }
 
         return errors;
@@ -63,7 +67,8 @@ export class ProductService extends Service<Product> {
         const errors = [];
 
         if(product['new_price'] < completeProduct['cost_price']) {
-            errors.push({'financialError': 'Novo preço deve ser maior que o custo do produto'})
+            // errors.push({'financialError': 'Novo preço deve ser maior que o custo do produto'})
+            errors.push('Novo preço deve ser maior que o custo do produto')
         }
 
         const teenPercentPrice = ((completeProduct['sales_price']/100) * 10).toFixed(2);
@@ -72,7 +77,8 @@ export class ProductService extends Service<Product> {
 
 
         if(product['new_price'] < minPrice || product['new_price'] > maxPrice) {
-            errors.push({'marketingError': 'Variação de preço não pode ser superior a 10%'})
+            // errors.push({'marketingError': 'Variação de preço não pode ser superior a 10%'})
+            errors.push('Variação de preço não pode ser superior a 10%')
         }
 
         return errors;
