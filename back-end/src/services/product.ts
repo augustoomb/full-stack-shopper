@@ -109,5 +109,4 @@ export class ProductService extends Service<Product> {
 
         return arrValidateProducts;
     }
-   
 }
