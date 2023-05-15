@@ -1,11 +1,13 @@
 # PROJETO ATUALIZADOR DE PREÇOS - PROCESSO SELETIVO SHOPPER
 Projeto criado utilizando React.JS, Docker, Docker Compose, MySQL e Node.JS 
 
+<br/>
 
 ## Informações
 
 Há dois diretórios disponíveis: back-end e front-end
 
+<br/>
 
 # Back-end
 
