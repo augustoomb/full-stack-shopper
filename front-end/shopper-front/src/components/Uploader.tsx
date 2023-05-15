@@ -3,7 +3,8 @@ import Papa from 'papaparse';
 
 interface UploaderProps {
     title: string, 
-    setDataCsvFile: ([]: any) =>  void
+    // setDataCsvFile: ([]: any) =>  void
+    setDataCsvFile: any
 }
 
 export default function Uploader(props: UploaderProps) {
@@ -13,7 +14,6 @@ export default function Uploader(props: UploaderProps) {
                 header: true,
                 skipEmptyLines: true,
                 complete: function (results) {
-                //   console.log(results.data)
                 props.setDataCsvFile(results.data)
             },
         });
