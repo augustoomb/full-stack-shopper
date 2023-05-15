@@ -17,4 +17,12 @@ export default class ProductModel implements SimpleModel<Product> {
         const [products] = result as RowDataPacket[];
         return products as Product[];
     }
+
+    async find(code: number): Promise<Partial<Product> | null> {
+        const result = await this.connection.execute(`SELECT *
+         FROM ${DATABASE}.${this.tableName} AS P WHERE P.code = ?;`, [code]);
+
+        const [products] = result as RowDataPacket[];
+        return products[0] as Product;
+    }
 }
