@@ -25,4 +25,11 @@ export default class ProductModel implements SimpleModel<Product> {
         const [products] = result as RowDataPacket[];
         return products[0] as Product;
     }
+
+    async update(code: number, price: number): Promise<void> {
+        await this.connection.execute(`UPDATE ${DATABASE}.${this.tableName}
+        AS P SET P.sales_price = ? WHERE P.code = ?;`, [
+            price, code
+        ]);
+    }
 }
