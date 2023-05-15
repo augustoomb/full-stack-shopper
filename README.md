@@ -17,30 +17,35 @@ No diretório do projeto, rode o docker compose:
 
 ### `docker-compose up -d`
 
+<br/>
 
 Confira se há dois containeres rodando (back-end e MySQL):
 
 ### `docker ps`
 
+<br/>
 
 Entre no terminal do container Node:
 
 ### `docker exec -it shopper_container sh`
 
+<br/>
 
 Instale as dependências:
 
 ### `npm i`
 
+<br/>
 
 Rodando a aplicação:
 
 ### `npm run dev`
 Aplicação rodará na porta 3000
 
+<br/>
 
 Banco de dados
 
 Há um script (createDatabase.sql) que vai popular o banco de dados com os dados iniciais necessários
 
-
+<br/>
