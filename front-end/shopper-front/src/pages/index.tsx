@@ -11,6 +11,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [dataCsvFile, setDataCsvFile] = useState([])
+  const [dataAPIProducts, setDataAPIProducts] = useState()
 
   return (
     <>
@@ -26,11 +27,11 @@ export default function Home() {
         </div>
 
         <div className={styles.center}>
-          <DataTable />
+          <DataTable dataAPIProducts={ dataAPIProducts }/>          
         </div>
 
         <div className={styles.grid}>
-          <ValidationBtn dataCsvFile={ dataCsvFile }/>
+          <ValidationBtn dataCsvFile={ dataCsvFile } setDataAPIProducts={ setDataAPIProducts }/>
 
           <RefreshBtn />          
         </div>
