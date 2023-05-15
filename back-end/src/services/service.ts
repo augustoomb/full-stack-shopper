@@ -20,5 +20,10 @@ export default abstract class Service<T> {
         
         return await this.model.find(code) as T;
     }
+
+    async update(code: number, price: number): Promise<void> {
+        const model = this.model as SimpleModel<T>;
+        await model.update(code, price);
+      }
     
 }
