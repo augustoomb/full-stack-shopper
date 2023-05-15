@@ -33,7 +33,7 @@ export default function Home() {
         <div className={styles.grid}>
           <ValidationBtn dataCsvFile={ dataCsvFile } setDataAPIProducts={ setDataAPIProducts }/>
 
-          <RefreshBtn />          
+          <RefreshBtn dataAPIProducts={ dataAPIProducts }/> 
         </div>
       </main>
     </>
