@@ -1,12 +1,14 @@
+import { validateProduct } from '../services/products';
+
 interface ValidationBtnProps {
   dataCsvFile: (any)[]
 }
 
 export default function ValidationBtn(props: ValidationBtnProps) {
 
-    function validateData() {
-      const stringfy = JSON.stringify(props.dataCsvFile);
-      console.log(JSON.parse(stringfy))
+    async function validateData() {
+      const stringfyObjCsv = JSON.stringify(props.dataCsvFile);
+      await validateProduct(stringfyObjCsv);
     }
 
     return (
