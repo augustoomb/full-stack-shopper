@@ -62,4 +62,10 @@ Na raiz do diretório front-end, instale as dependências:
 
 <br/>
 
+Rode a aplicação:
+
+### `npm run dev`
+
+<br/>
+
 A aplicação rodará na porta 3001
