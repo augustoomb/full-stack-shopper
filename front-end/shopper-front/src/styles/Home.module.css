@@ -1,0 +1,23 @@
+.main {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+    "titleArea"
+    "uploaderArea"
+    "tableArea"
+    "btnArea";
+    grid-template-rows: 1fr 1fr 5fr 1fr;
+    margin: 5px;
+}
+
+.titleArea {
+    grid-area: "titleArea";
+    text-align: center;
+}
+
+.btnArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

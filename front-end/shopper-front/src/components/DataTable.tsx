@@ -1,4 +1,5 @@
 import Product from "./Product"
+import styles from '../styles/dataTable.module.css';
 
 interface dataTableProps {
   dataAPIProducts: any
@@ -7,7 +8,7 @@ interface dataTableProps {
 export default function DataTable(props: dataTableProps) {
 
     return (
-      <div>
+      <div className={ styles.tableArea }>
         {
           !props.dataAPIProducts ? (
             <p>Sem dados</p>

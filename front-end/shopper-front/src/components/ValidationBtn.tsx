@@ -21,7 +21,7 @@ export default function ValidationBtn(props: ValidationBtnProps) {
             Validar <span>-&gt;</span>
           </h2>
           <p>
-            Valide os dados do seu arquivo antes de salvar os dados no banco.
+            Valide os dados do seu arquivo.
           </p>
       </button>  
     )

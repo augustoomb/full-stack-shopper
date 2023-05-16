@@ -1,0 +1,6 @@
+.tableArea {
+    grid-area: "tableArea";
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}

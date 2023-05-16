@@ -16,7 +16,6 @@ app.use('/products', routers.productRouter);
 
 // middleware de erros
 app.use((err: unknown, _: Request, res: Response, __: NextFunction) => {    
-    console.error(err);
     return res.status(500).json({ message: 'Erro interno' });
 });
 

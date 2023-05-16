@@ -1,9 +1,8 @@
-// import styles from '../styles/uploader.module.css';
+import styles from '../styles/uploader.module.css';
 import Papa from 'papaparse';
 
 interface UploaderProps {
-    title: string, 
-    // setDataCsvFile: ([]: any) =>  void
+    message: string, 
     setDataCsvFile: any
 }
 
@@ -20,9 +19,9 @@ export default function Uploader(props: UploaderProps) {
     };
 
     return (
-        <div>
+        <div className={ styles.uploaderArea }>
             <div>
-                { props.title }
+                { props.message }
             </div>
             <div>
                 <input
